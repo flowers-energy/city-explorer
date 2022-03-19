@@ -10,26 +10,23 @@ City Explorer is an app that allows users to search for a city, revealing info a
 The user must search for a city in a text entry form. 
 
 ## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
-
+JS, CSS, JSX, react bootsrap, locationiq API
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+3/19/22 - updated map and search funtionality
 
 ## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+Thanks to Hugo for some solid advice and guidance.
 
 
-Name of feature: ________________________________
+Name of feature: MAP
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 60 min
 
-Start time: _____
+Start time: 2:00 pm
 
-Finish time: _____
+Finish time: 3:30 pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 90 min
 
 Name of feature: ________________________________
 
