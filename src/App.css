@@ -1,16 +1,22 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  color: rgb(241, 244, 247);
+  text-size-adjust: 24px;
+}
+.App button {
+  border-radius: 5em;
+  background-color: blueviolet;
+  color:rgb(241, 244, 247);
+  opacity: 80%;
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+button:hover {
+  opacity: 100%;
+  background-color: rgb(247, 4, 218);
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
 }
 
 .App-header {
@@ -24,15 +30,8 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App Image {
+  border-radius: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
