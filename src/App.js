@@ -10,20 +10,27 @@ class App extends React.Component {
       searchQuery: '',
       city_name: '',
       lat: '',
-      lon : ''
+      lon : '',
+      displayError: false
+
     }
   }
 
   goHere = async event => {
     event.preventDefault()
+    try{
     const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&q=${this.state.searchQuery}&format=json`
     const hereResponse = await axios.get(url);
     console.log(hereResponse.data[0]);
-    this.setState({
-      city_name: hereResponse.data[0].display_name,lat:hereResponse.data[0].lat,
-      lon: hereResponse.data[0].lon
-    });
-    
+      this.setState({
+        city_name: hereResponse.data[0].display_name,lat:hereResponse.data[0].lat,
+        lon: hereResponse.data[0].lon,
+        displayError: false
+      });
+      } catch(err) {
+       this.setState({displayError: true})
+        
+      }
 
   }
 
@@ -43,7 +50,10 @@ class App extends React.Component {
             <Image src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&zoom=11&center=${this.state.lat},${this.state.lon}&width=200px&height=200px` }/>
           </>
         }
-        
+        {
+          this.state.displayError &&
+         <p>error: please enter a location</p> 
+        }
 
         
       </div>
