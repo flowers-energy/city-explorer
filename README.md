@@ -28,17 +28,16 @@ Finish time: 3:30 pm
 
 Actual time needed to complete: 90 min
 
-Name of feature: ________________________________
+Name of feature: error message
+Estimate of time needed to complete: 60 min
 
-Estimate of time needed to complete: _____
+Start time: 4:45 pm
 
-Start time: _____
+Finish time: 5:25 pm
 
-Finish time: _____
+Actual time needed to complete: 40 min
 
-Actual time needed to complete: _____
-
-Name of feature: ________________________________
+Name of feature: 
 
 Estimate of time needed to complete: _____
 
