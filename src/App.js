@@ -11,7 +11,8 @@ class App extends React.Component {
       city_name: '',
       lat: '',
       lon : '',
-      displayError: false
+      displayError: false,
+      weatherData: []
 
     }
   }
@@ -27,12 +28,26 @@ class App extends React.Component {
         lon: hereResponse.data[0].lon,
         displayError: false
       });
+      this.getWeather();
       } catch(err) {
        this.setState({displayError: true})
         
       }
 
   }
+
+  getWeather = async() => {
+    try {
+      const url = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.searchQuery}`
+      const weatherResponse = await axios.get(url);
+      console.log(weatherResponse.data);
+       this.setState({weatherData: weatherResponse.data})
+    } catch(error) {
+      this.setState({displayError: true})
+    }
+  };
+
+
 
   render() {
     return (
