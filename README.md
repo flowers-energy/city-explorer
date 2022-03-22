@@ -13,6 +13,7 @@ The user must search for a city in a text entry form.
 JS, CSS, JSX, react bootsrap, locationiq API
 ## Change Log
 3/19/22 - updated map and search funtionality
+3/21/22 - started server handshake and rendering to the app
 
 ## Credit and Collaborations
 Thanks to Hugo for some solid advice and guidance.
@@ -39,10 +40,10 @@ Actual time needed to complete: 40 min
 
 Name of feature: 
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: server 
 
-Start time: _____
+Start time: 7 pm
 
-Finish time: _____
+Finish time: 830 pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 90 min
