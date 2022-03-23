@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import axios from 'axios';
 import Image from 'react-bootstrap/Image';
+import Weather from './Weather';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,40 +11,41 @@ class App extends React.Component {
       searchQuery: '',
       city_name: '',
       lat: '',
-      lon : '',
+      lon: '',
       displayError: false,
-      weatherData: []
+      weatherData: [],
+     
 
     }
   }
 
   goHere = async event => {
     event.preventDefault()
-    try{
-    const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&q=${this.state.searchQuery}&format=json`
-    const hereResponse = await axios.get(url);
-    console.log(hereResponse.data[0]);
+    try {
+      const url = `https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&q=${this.state.searchQuery}&format=json`
+      const hereResponse = await axios.get(url);
+      console.log(hereResponse.data[0]);
       this.setState({
-        city_name: hereResponse.data[0].display_name,lat:hereResponse.data[0].lat,
+        city_name: hereResponse.data[0].display_name, lat: hereResponse.data[0].lat,
         lon: hereResponse.data[0].lon,
         displayError: false
       });
       this.getWeather();
-      } catch(err) {
-       this.setState({displayError: true})
-        
-      }
+    } catch (err) {
+      this.setState({ displayError: true })
+
+    }
 
   }
 
-  getWeather = async() => {
+  getWeather = async () => {
     try {
       const url = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.searchQuery}`
       const weatherResponse = await axios.get(url);
       console.log(weatherResponse.data);
-       this.setState({weatherData: weatherResponse.data})
-    } catch(error) {
-      this.setState({displayError: true})
+      this.setState({ weatherData: weatherResponse.data })
+    } catch (error) {
+      this.setState({ displayError: true })
     }
   };
 
@@ -52,25 +54,27 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <input onChange={(event) => this.setState({searchQuery: event.target.value})}
+        <input onChange={(event) => this.setState({ searchQuery: event.target.value })}
           placeholder='Where would you like to go?'></input>
-        <button onClick={this.goHere}>Explore!</button>
+        <button onClick={this.goHere}{...this.getWeather}>Explore!</button>
         {this.state.city_name &&
-        <h2>Discover {this.state.city_name}</h2>
+          <h2>Discover {this.state.city_name}</h2>
         }
         {this.state.lat &&
           <>
             <h3>{this.state.lat}</h3>
             <h3>{this.state.lon}</h3>
-            <Image src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&zoom=11&center=${this.state.lat},${this.state.lon}&width=200px&height=200px` }/>
+            <Image src={`https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_KEY}&zoom=11&center=${this.state.lat},${this.state.lon}&width=200px&height=200px`} />
+           <Weather weatherData={this.state.weatherData} />
           </>
         }
         {
           this.state.displayError &&
-         <p>error: please enter a location</p> 
+          <p>error: please enter a location</p>
         }
 
-        
+
+
       </div>
     );
   }

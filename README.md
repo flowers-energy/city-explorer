@@ -38,9 +38,9 @@ Finish time: 5:25 pm
 
 Actual time needed to complete: 40 min
 
-Name of feature: 
+Name of feature: Back End
 
-Estimate of time needed to complete: server 
+Estimate of time needed to complete: 60 min
 
 Start time: 7 pm
 
