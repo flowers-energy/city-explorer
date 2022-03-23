@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Image from 'react-bootstrap/Image';
 import Weather from './Weather';
