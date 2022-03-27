@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Image from 'react-bootstrap/Image';
 import Weather from './Weather';
@@ -14,6 +15,8 @@ class App extends React.Component {
       lon: '',
       displayError: false,
       weatherData: [],
+      movData: [],
+
      
 
     }
@@ -26,7 +29,8 @@ class App extends React.Component {
       const hereResponse = await axios.get(url);
       console.log(hereResponse.data[0]);
       this.setState({
-        city_name: hereResponse.data[0].display_name, lat: hereResponse.data[0].lat,
+        city_name: hereResponse.data[0].display_name, 
+        lat: hereResponse.data[0].lat,
         lon: hereResponse.data[0].lon,
         displayError: false
       });
@@ -40,7 +44,7 @@ class App extends React.Component {
 
   getWeather = async () => {
     try {
-      const url = `${process.env.REACT_APP_SERVER}/weather?searchQuery=${this.state.searchQuery}`
+      const url = `${process.env.REACT_APP_SERVER}/weather?lat=${this.state.lat}&lon=${this.state.lon}`;
       const weatherResponse = await axios.get(url);
       console.log(weatherResponse.data);
       this.setState({ weatherData: weatherResponse.data })
@@ -49,6 +53,12 @@ class App extends React.Component {
     }
   };
 
+  findMovies = async () => {
+    try {
+      const url = `${process.env.REACT_APP_SERVER}/movies?`
+    }
+   
+  }
 
 
   render() {
